@@ -74,12 +74,52 @@
       <h2>Multi-Round Editing Results</h2>
       <figure class="figure mt-0">
         <img src="static/images/multiround.jpg" alt="Grid of ten editing rounds in an indoor scene for BoxCtrl, Thinking in Boxes, SeeThrough3D, MT-OPSD, FreqEdit and LayoutRecall, with the layouts in the top row" width="2400" height="1532" loading="lazy">
-        <figcaption><strong>Indoor scene.</strong> SeeThrough3D regenerates the target while completely discarding the original content. BoxCtrl replaces the scene with an empty background. With its long-term memory, LayoutRecall restores the toy car previously hidden by the moved sofa in round 7 and the plant previously hidden by the added cabinet in round 8 (yellow circles).</figcaption>
+        <figcaption><strong>Qualitative Example 1.</strong> With its long-term memory, LayoutRecall restores the toy car previously hidden by the moved sofa in round 7 and the plant previously hidden by the added cabinet in round 8 (yellow circles).</figcaption>
       </figure>
       <figure class="figure mt-5">
         <img src="static/images/multiround_supp.jpg" alt="Grid of ten editing rounds in an outdoor park scene for BoxCtrl, Thinking in Boxes, SeeThrough3D, MT-OPSD, FreqEdit and LayoutRecall, with the layouts in the top row" width="2400" height="1531" loading="lazy">
-        <figcaption><strong>Outdoor scene.</strong> In round 3 (yellow circles), unlike the single-round editor Thinking-in-Boxes, LayoutRecall restores the appearance of the orange ball, which was occluded by the car, and of the streetlight and the tree, which were out of view.</figcaption>
+        <figcaption><strong>Qualitative Example 2.</strong> In round 3 (yellow circles), unlike the single-round editor Thinking-in-Boxes, LayoutRecall restores the appearance of the orange ball, which was occluded by the car, and of the streetlight and the tree, which were out of view.</figcaption>
       </figure>
+
+      <div class="table-block">
+        <p class="table-caption"><strong>Table 3. Multi-round editing on LayoutLoop.</strong> Back is the PSNR when the camera returns to an earlier view, and Self is the object similarity to its first observation. Best results are in <strong>bold</strong> and second best are <u>underlined</u>.</p>
+        <div class="table-scroll">
+          <table class="results">
+            <thead>
+              <tr><th rowspan="2">Method</th><th colspan="1" class="grp">Quality</th><th colspan="2" class="grp">Editing Accuracy</th><th colspan="3" class="grp">Preservation</th><th colspan="2" class="grp">Consistency</th></tr>
+              <tr><th class="grp">|&Delta;MUSIQ|&nbsp;&darr;</th><th class="grp">mIoU&nbsp;&uarr;</th><th>Succ.&nbsp;&uarr;</th><th class="grp">PSNR&nbsp;&uarr;</th><th>SSIM&nbsp;&uarr;</th><th>LPIPS&nbsp;&darr;</th><th class="grp">Back&nbsp;&uarr;</th><th>Self&nbsp;&uarr;</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>BoxCtrl</td><td class="grp">18.65</td><td class="grp">0.485</td><td>0.540</td><td class="grp">17.16</td><td><u>0.688</u></td><td>0.491</td><td class="grp"><u>15.46</u></td><td>0.287</td></tr>
+            <tr><td>Thinking in Boxes</td><td class="grp"><u>4.32</u></td><td class="grp">0.470</td><td>0.568</td><td class="grp"><u>18.03</u></td><td>0.676</td><td>0.430</td><td class="grp">14.96</td><td>0.570</td></tr>
+            <tr><td>SeeThrough3D</td><td class="grp">7.36</td><td class="grp"><strong>0.618</strong></td><td><strong>0.816</strong></td><td class="grp">9.24</td><td>0.411</td><td>0.816</td><td class="grp">9.48</td><td>0.340</td></tr>
+            <tr class="rule"><td>MT-OPSD</td><td class="grp">10.79</td><td class="grp">0.149</td><td>0.180</td><td class="grp">15.46</td><td>0.650</td><td>0.504</td><td class="grp">12.98</td><td>0.414</td></tr>
+            <tr><td>FreqEdit</td><td class="grp">4.98</td><td class="grp">0.280</td><td>0.288</td><td class="grp">16.76</td><td>0.621</td><td><u>0.424</u></td><td class="grp">15.14</td><td><u>0.596</u></td></tr>
+            <tr class="ours rule"><td>LayoutRecall (ours)</td><td class="grp"><strong>2.19</strong></td><td class="grp"><u>0.608</u></td><td><u>0.732</u></td><td class="grp"><strong>24.97</strong></td><td><strong>0.802</strong></td><td><strong>0.245</strong></td><td class="grp"><strong>23.75</strong></td><td><strong>0.733</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="table-block">
+        <p class="table-caption"><strong>Table 4. Multi-round editing on real scenes.</strong> All metrics are reference-free. |&Delta;MUSIQ| is the mean absolute change in MUSIQ between each output and its input. Survive is the fraction of unedited and visible objects that Grounding DINO still detects inside their boxes after the edit. Best results are in <strong>bold</strong> and second best are <u>underlined</u>.</p>
+        <div class="table-scroll">
+          <table class="results">
+            <thead>
+              <tr><th rowspan="2">Method</th><th colspan="1" class="grp">Quality</th><th colspan="2" class="grp">Editing Accuracy</th><th colspan="3" class="grp">Preservation</th><th colspan="2" class="grp">Consistency</th></tr>
+              <tr><th class="grp">|&Delta;MUSIQ|&nbsp;&darr;</th><th class="grp">mIoU&nbsp;&uarr;</th><th>Succ.&nbsp;&uarr;</th><th class="grp">Survive&nbsp;&uarr;</th><th>PSNR&nbsp;&uarr;</th><th>LPIPS&nbsp;&darr;</th><th class="grp">Back&nbsp;&uarr;</th><th>Self&nbsp;&uarr;</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>BoxCtrl</td><td class="grp">26.05</td><td class="grp">0.442</td><td>0.530</td><td class="grp">0.191</td><td><u>29.86</u></td><td>0.113</td><td class="grp"><strong>31.42</strong></td><td>0.215</td></tr>
+            <tr><td>Thinking in Boxes</td><td class="grp">4.42</td><td class="grp">0.372</td><td>0.430</td><td class="grp">0.421</td><td>28.18</td><td><u>0.075</u></td><td class="grp">19.96</td><td><u>0.500</u></td></tr>
+            <tr><td>SeeThrough3D</td><td class="grp">7.02</td><td class="grp"><u>0.522</u></td><td><u>0.710</u></td><td class="grp"><u>0.604</u></td><td>12.74</td><td>0.518</td><td class="grp">15.52</td><td>0.453</td></tr>
+            <tr class="rule"><td>MT-OPSD</td><td class="grp">12.74</td><td class="grp">0.118</td><td>0.130</td><td class="grp">0.104</td><td>26.66</td><td>0.090</td><td class="grp">19.80</td><td>0.394</td></tr>
+            <tr><td>FreqEdit</td><td class="grp"><u>4.36</u></td><td class="grp">0.160</td><td>0.150</td><td class="grp">0.191</td><td>26.27</td><td>0.092</td><td class="grp">25.13</td><td>0.491</td></tr>
+            <tr class="ours rule"><td>LayoutRecall (ours)</td><td class="grp"><strong>2.96</strong></td><td class="grp"><strong>0.662</strong></td><td><strong>0.830</strong></td><td class="grp"><strong>0.838</strong></td><td><strong>32.84</strong></td><td><strong>0.037</strong></td><td class="grp"><u>28.80</u></td><td><strong>0.756</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
     <section class="section">
