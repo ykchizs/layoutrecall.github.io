@@ -82,11 +82,11 @@
       </figure>
 
       <div class="table-block">
-        <p class="table-caption"><strong>Table 3. Multi-round editing on LayoutLoop.</strong> Back is the PSNR when the camera returns to an earlier view, and Self is the object similarity to its first observation. Best results are in <strong>bold</strong> and second best are <u>underlined</u>.</p>
+        <p class="table-caption"><strong>Table 3. Multi-round editing on LayoutLoop.</strong> Our method achieves the best on all metrics except the editing accuracy, where SeeThrough3D regenerates the target while completely discarding the original content, leading to higher editing accuracy at the cost of very low preservation.</p>
         <div class="table-scroll">
           <table class="results">
             <thead>
-              <tr><th rowspan="2">Method</th><th colspan="1" class="grp">Quality</th><th colspan="2" class="grp">Editing Accuracy</th><th colspan="3" class="grp">Preservation</th><th colspan="2" class="grp">Consistency</th></tr>
+              <tr><th rowspan="2" class="method">Method</th><th colspan="1" class="grp">Quality</th><th colspan="2" class="grp">Editing Accuracy</th><th colspan="3" class="grp">Preservation</th><th colspan="2" class="grp">Consistency</th></tr>
               <tr><th class="grp">|&Delta;MUSIQ|&nbsp;&darr;</th><th class="grp">mIoU&nbsp;&uarr;</th><th>Succ.&nbsp;&uarr;</th><th class="grp">PSNR&nbsp;&uarr;</th><th>SSIM&nbsp;&uarr;</th><th>LPIPS&nbsp;&darr;</th><th class="grp">Back&nbsp;&uarr;</th><th>Self&nbsp;&uarr;</th></tr>
             </thead>
             <tbody>
@@ -102,11 +102,11 @@
       </div>
 
       <div class="table-block">
-        <p class="table-caption"><strong>Table 4. Multi-round editing on real scenes.</strong> All metrics are reference-free. |&Delta;MUSIQ| is the mean absolute change in MUSIQ between each output and its input. Survive is the fraction of unedited and visible objects that Grounding DINO still detects inside their boxes after the edit. Best results are in <strong>bold</strong> and second best are <u>underlined</u>.</p>
+        <p class="table-caption"><strong>Table 4. Multi-round editing on real scenes.</strong> Our method achieves the best on all metrics except Back, where BoxCtrl replaces each scene with an empty background in the first round, leading to the inflation of its PSNR and Back scores, but by far the worst |&Delta;MUSIQ|.</p>
         <div class="table-scroll">
           <table class="results">
             <thead>
-              <tr><th rowspan="2">Method</th><th colspan="1" class="grp">Quality</th><th colspan="2" class="grp">Editing Accuracy</th><th colspan="3" class="grp">Preservation</th><th colspan="2" class="grp">Consistency</th></tr>
+              <tr><th rowspan="2" class="method">Method</th><th colspan="1" class="grp">Quality</th><th colspan="2" class="grp">Editing Accuracy</th><th colspan="3" class="grp">Preservation</th><th colspan="2" class="grp">Consistency</th></tr>
               <tr><th class="grp">|&Delta;MUSIQ|&nbsp;&darr;</th><th class="grp">mIoU&nbsp;&uarr;</th><th>Succ.&nbsp;&uarr;</th><th class="grp">Survive&nbsp;&uarr;</th><th>PSNR&nbsp;&uarr;</th><th>LPIPS&nbsp;&darr;</th><th class="grp">Back&nbsp;&uarr;</th><th>Self&nbsp;&uarr;</th></tr>
             </thead>
             <tbody>

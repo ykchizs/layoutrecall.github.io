@@ -191,7 +191,8 @@ table.results th, table.results td {
   text-align: center;
   white-space: nowrap;
 }
-table.results th:first-child, table.results td:first-child { text-align: left; }
+table.results th.method, table.results td:first-child { text-align: left; }
+table.results th.method { vertical-align: bottom; border-bottom: 1px solid var(--ink); }
 table.results thead tr:first-child th { border-top: 2px solid var(--ink); font-weight: 600; }
 table.results thead tr:last-child th { border-bottom: 1px solid var(--ink); font-weight: 500; }
 table.results tbody tr.ours td { background: rgba(29, 79, 145, 0.06); }
