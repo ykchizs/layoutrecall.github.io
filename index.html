@@ -82,7 +82,7 @@
       </figure>
 
       <div class="table-block">
-        <p class="table-caption"><strong>Table 3. Multi-round editing on LayoutLoop.</strong> Our method achieves the best on all metrics except the editing accuracy, where SeeThrough3D regenerates the target while completely discarding the original content, leading to higher editing accuracy at the cost of very low preservation.</p>
+        <p class="table-caption"><strong>Table 3. Multi-round editing on LayoutLoop.</strong> LayoutRecall performs best on every metric except editing accuracy, where it ranks second. SeeThrough3D scores higher there because it regenerates each target from the layout and discards the original content, which also gives it the lowest preservation.</p>
         <div class="table-scroll">
           <table class="results">
             <thead>
@@ -102,7 +102,7 @@
       </div>
 
       <div class="table-block">
-        <p class="table-caption"><strong>Table 4. Multi-round editing on real scenes.</strong> Our method achieves the best on all metrics except Back, where BoxCtrl replaces each scene with an empty background in the first round, leading to the inflation of its PSNR and Back scores, but by far the worst |&Delta;MUSIQ|.</p>
+        <p class="table-caption"><strong>Table 4. Multi-round editing on real scenes.</strong> LayoutRecall performs best on every metric except Back, where it ranks second. BoxCtrl replaces each scene with an empty background in the first round; the near-static output inflates its PSNR and Back scores but gives by far the worst |&Delta;MUSIQ|.</p>
         <div class="table-scroll">
           <table class="results">
             <thead>
