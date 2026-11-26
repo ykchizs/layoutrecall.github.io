@@ -1,0 +1,175 @@
+/* LayoutRecall project page (layout follows the PixelMatte page) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+:root {
+  --ink: #212529;
+  --muted: #6c757d;
+  --line: #dddddd;
+  --pill: rgba(0, 0, 0, 0.1);
+  --accent: #1d4f91;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: #ffffff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Merriweather', Times, serif; }
+
+a { color: inherit; }
+a:hover { color: #999; }
+
+.wrapper { max-width: 960px; }
+
+/* banner: the teaser, heavily blurred behind a white veil */
+#info-banner {
+  width: 100%;
+  background-image: url('static/images/teaser.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-bottom: 0.5px solid lightgray;
+}
+
+#info-banner .background-filter {
+  background-color: rgba(255, 255, 255, 0.78);
+  backdrop-filter: saturate(1.8) blur(30px);
+  -webkit-backdrop-filter: saturate(1.8) blur(30px);
+}
+
+#info-banner h1 {
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+}
+
+#info-banner h1 .brand {
+  font-weight: 700;
+  color: #2563eb;
+  background-image: linear-gradient(90deg, #2563eb 0%, #0891b2 40%, #16a34a 75%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.authors {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.9;
+}
+.authors .sep { margin: 0 0.35em; font-weight: 400; }
+
+.affiliations { font-size: 0.9rem; color: #343a40; }
+.affiliations span { margin-right: 1em; white-space: nowrap; }
+
+.venue { font-size: 0.9rem; color: var(--muted); margin-top: 0.25rem; }
+
+.links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.links a, .links span.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+  background-color: var(--pill);
+  border-radius: 25px;
+  padding: 5px 14px;
+  font-size: 0.95rem;
+  transition: background-color 0.15s ease;
+}
+.links a:hover { background-color: rgba(0, 0, 0, 0.18); color: inherit; }
+.links span.pill { color: #555; cursor: default; }
+.links svg { width: 18px; height: 18px; }
+
+/* content */
+.section { margin-bottom: 3rem; }
+.section h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+}
+.section h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 2rem 0 0.5rem 0;
+}
+
+.abstract { font-style: italic; text-align: justify; }
+
+.figure { margin: 1.25rem 0 0 0; width: 100%; }
+.figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  cursor: zoom-in;
+}
+.figure figcaption {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+}
+.figure figcaption strong { color: var(--ink); font-weight: 600; }
+
+.key-points { padding-left: 1.2rem; }
+.key-points li { margin-bottom: 0.4rem; }
+
+/* bibtex */
+.bibtex {
+  position: relative;
+  background: #f6f7f8;
+  border: 1px solid #e6e8ea;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+.bibtex pre {
+  margin: 0;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.bibtex button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 20px;
+  background: var(--pill);
+  font-size: 0.8rem;
+  padding: 3px 12px;
+}
+
+/* lightbox */
+#lightbox .modal-content { background: transparent; border: 0; }
+#lightbox img { width: 100%; height: auto; border-radius: 6px; cursor: zoom-out; background: #fff; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  color: #999999;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 576px) {
+  #info-banner h1 { font-size: 1.45rem; }
+  .section h2 { font-size: 1.3rem; }
+}
